@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>本を追加したい</title>
+</head>
+<body>
+
+<form action="/jmaster/AuthServlet" method="post">
+	ユーザ名：<input type="text" name="name" /><br>
+	パスワード：<input type="password" name="pass" /><br>
+	<input type="hidden" name="pageId" value="1" /><br>
+	<input type="submit" value="ログイン"/>
+</form>
+
+<a href="/jmaster/BookServlet">本を見に行く</a>
+
+
+<a href="/jmaster/BookServlet?title='本1'&price='670'">本1</a>
+</body>
+</html>

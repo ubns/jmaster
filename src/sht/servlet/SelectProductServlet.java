@@ -1,0 +1,49 @@
+package sht.servlet;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+/**
+ * Servlet implementation class SelectProductServlet
+ */
+@WebServlet("/SelectProductServlet")
+public class SelectProductServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("text/html;charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		// リクエストパラメータの読み込み
+		String productNo = request.getParameter("product_no");
+//		int no = Integer.parseInt(productNo);
+		String productName = null;
+		
+		// 選択された商品の判定
+		switch (productNo) {
+		case "100":
+			productName = "パソコン";
+			break;
+		case "101":
+			productName = "プリンタ";
+			break;
+		case "102":
+			productName = "デジタルカメラ";
+			break;
+		default:
+			productName = "???";
+		}
+		
+		out.println("<html><head><title>Plus</title></head><body>");
+		out.println("選択された商品は「" + productName + "」です");
+		out.print("</body></html>");
+	}
+}
